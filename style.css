@@ -1,0 +1,126 @@
+html,
+body {
+  height: 100%; }
+
+body {
+  margin: 0;
+  height: 100%;
+  background-color: #c55d22;
+  color: white;
+  font-family: Helvetica Neue, Open Sans;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+canvas {
+  background-color: white;
+  border-bottom: 20px solid #c55d22; }
+
+#controls {
+  text-align: center;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow: auto;
+  position: relative; }
+
+.block {
+  min-width: 300px;
+  width: 50%;
+  box-sizing: border-box;
+  border: 1px solid #e2ae91;
+  margin: 0 auto 1em;
+  padding: 1em;
+  position: relative; }
+
+input {
+  text-align: center;
+  border: 0;
+  color: #c55d22;
+  padding: 4px; }
+
+.info-block {
+  border: 0; }
+
+.add-keyboard-player {
+  opacity: 0.9;
+  -webkit-transition: opacity 0.2s ease;
+          transition: opacity 0.2s ease; }
+  .add-keyboard-player:hover {
+    opacity: 1; }
+
+.inline-icon {
+  margin-right: 10px; }
+
+.note {
+  color: white;
+  line-height: 1.5em; }
+
+.heading, h2, h3, h4 {
+  margin: 1em 0; }
+
+h2 {
+  font-size: 1.5em; }
+
+h3 {
+  font-size: 1.25em; }
+
+h4 {
+  font-size: 1em;
+  word-wrap: break-word;
+  line-height: 1.5em; }
+
+.fa {
+  font-size: 2em !important;
+  display: block; }
+
+p {
+  font-size: 0.75em;
+  text-decoration: italic;
+  color: white;
+  margin: 1em 0;
+  line-height: 1.5em; }
+
+.control {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 1px; }
+  .control > * {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
+
+button {
+  background: transparent;
+  border: 1px solid white;
+  padding: 1em;
+  border-radius: 1px;
+  color: white;
+  cursor: pointer; }
+
+.secondary-info {
+  color: #e2ae91; }
+
+.fa-trash {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.9em !important;
+  cursor: pointer; }

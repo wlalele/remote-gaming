@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="http://meyerweb.com/eric/tools/css/reset/reset.css" rel="stylesheet" type="text/css">
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <script src="angular.min.js"></script>
+</head>
+<!-- http://www.smashingmagazine.com/2015/11/gamepad-api-in-web-games/ -->
+<body ng-app="gameApp">
+  <canvas id="canvas"></canvas>
+  <div id="controls" ng-controller="GameController">
+    <div control-settings ng-repeat="(id, player) in players" class="block"></div>
+    <div class="block-info-block">
+      <i class="fa fa-plug inline-icon"></i>
+      <i class="fa fa-gamepad inline-icon"></i>
+      <span class="inline-icon">or </span>
+      <button ng-click="addKeyboardBlock()">
+        <i class="fa fa-plus inline-icon"></i>
+        <i class="fa fa-keyboard-o"></i>
+      </button>
+    </div>
+    <p ng-if="playersPresent" class="block info-block secondary-info">
+      Clicking in an input box will listen
+      for a new input to assign to that action. The next thing you do to your gamepad
+      will be used for that action. eg. Click in the left input box and move a
+      joystick on your gamepad to the left.
+    </p>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
