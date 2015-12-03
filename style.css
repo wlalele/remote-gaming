@@ -124,3 +124,8 @@ button {
   right: 10px;
   font-size: 0.9em !important;
   cursor: pointer; }
+
+.buttons .button.pressed {
+  background: blue;
+  border-radius: 50%;
+}

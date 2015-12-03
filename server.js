@@ -11,7 +11,8 @@ var server = http.createServer(function (res) {
     res.end('Hello World\n');
 }).listen(PORT);
 
-var io = require('socket.io').listen(server);
+var io = require('socket.io').listen(server),
+    state = null;
 
 io.sockets.on('connection', function (socket) {
     'use strict';
@@ -26,11 +27,9 @@ io.sockets.on('connection', function (socket) {
         console.log('a user disconnected');
     });
 
-    socket.emit('connection', new_player);
-
-    // When a chat message is sent, broadcast it to every user
-    socket.on('message', function(msg) {
-        io.sockets.emit('message', msg);
+    socket.on('update_controller', function (controller_state) {
+        state = controller_state;
+        console.log(state);
     });
 
     socket.on('update', function (datas) {
@@ -40,5 +39,5 @@ io.sockets.on('connection', function (socket) {
 
 setInterval(function () {
     'use strict';
-    io.sockets.emit('playersUpdate');
+    io.sockets.emit('controlsUpdate');
 }, 50);
