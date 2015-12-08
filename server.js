@@ -1,10 +1,11 @@
 // Constants
 var PORT = 8080;
-var TIMEOUT = 5000;
 
-// Initialization
-var http = require('http');
+// Libs Initialization
+var http = require('http'),
+    robot = require('robotjs');
 
+// HTTP Server
 var server = http.createServer(function (res) {
     'use strict';
     res.writeHead(200, { 'Content-Type': 'text/plain' });
@@ -16,8 +17,6 @@ var io = require('socket.io').listen(server),
 
 io.sockets.on('connection', function (socket) {
     'use strict';
-    // Broadcast a message to every user
-    // socket.broadcast.emit('hi & welcome');
 
     // Server log connection of user
     console.log('a user connected');
@@ -29,15 +28,10 @@ io.sockets.on('connection', function (socket) {
 
     socket.on('update_controller', function (controller_state) {
         state = controller_state;
-        console.log(state);
-    });
 
-    socket.on('update', function (datas) {
-
+        if (state.buttons[0] === true) {
+            console.log('X'); // log into term where server is launched
+            robot.typeString("X"); // simulate string typing
+        }
     });
 });
-
-setInterval(function () {
-    'use strict';
-    io.sockets.emit('controlsUpdate');
-}, 50);
